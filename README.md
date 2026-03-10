@@ -1,4 +1,4 @@
-# first-typescript
+# Discovery Land
 
 ## Project setup
 ```
