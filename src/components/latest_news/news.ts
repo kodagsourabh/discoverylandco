@@ -15,7 +15,7 @@ export default class LatestNews extends Vue {
       }[]=[
         {
           image:
-            "https://dxaurk9yhilm4.cloudfront.net/images/8790/DJI_0265_RET_2_210405_191033_8cfe90628771654de81065d52a5bfbcf.jpg",
+            require("@/assets/images/img1.jpg"),
           title:
             "Discovery’s newest property in Kaua’i North Shore Preserve",
           body:
@@ -23,21 +23,21 @@ export default class LatestNews extends Vue {
         },
         {
           image:
-            "https://dxaurk9yhilm4.cloudfront.net/images/7003/HERO_1920_200615_181847_8cfe90628771654de81065d52a5bfbcf.jpg",
+            require("@/assets/images/img2.jpg"),
           title: "James Island  Discovery's Newest Property",
           body:
             "Discovery Land Company is excited to announce our 24th private luxury residential community. James Island Golf and Ocean Club, a 780-acre private island in British Columbia with only 76 lots, is Discovery Land Company’s most exclusive community to date and Discovery’s first project in Canada.",
         },
         {
           image:
-            "https://dxaurk9yhilm4.cloudfront.net/images/523/CostaTerra1-copy_8cfe90628771654de81065d52a5bfbcf.jpg",
+            require("@/assets/images/img3.jpeg"),
           title: "CostaTerra  Discovery's 23rd property",
           body:
             "Discovery Land Company, the world’s leading developer of luxury private residential communities, clubs and resorts, has announced its 23rd property and first in Europe.",
         },
         {
           image:
-            "https://dxaurk9yhilm4.cloudfront.net/images/251/Troubadour-carousel_190620_130709_8cfe90628771654de81065d52a5bfbcf.jpg",
+            require("@/assets/images/img4.jpg"),
           title: "Troubadour To Open Golf Course Fall 2019",
           body:
             "Troubadour Golf & Field Club, a Discovery Land Company community, is pleased to announce the opening of its 18-hole Tom Fazio-designed golf course this fall.",

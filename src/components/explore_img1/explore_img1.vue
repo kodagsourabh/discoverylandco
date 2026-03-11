@@ -1,11 +1,12 @@
 <template>
   <div class="mountain_image">
-    <div class="img_section">
-      <img
-      src=https://dxaurk9yhilm4.cloudfront.net/images/139/img_5dabbd1a34149dcaed83515ff1526a0f.jpg>
+    <div class="content_overlay">
+      <div class="explore_heading">Our World</div>
+      <router-link to="/ourworlds" class="explore_text">Explore</router-link>
     </div>
-    <div class="explore_heading">Our World</div>
-    <div class="explore_text">Explore</div>
+    <div class="img_section">
+      <img src="@/assets/images/img4.jpg">
+    </div>
   </div>
 </template>
 

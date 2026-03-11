@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <section class="main">
-      <navbar />
+
       <div class="main-bg">
         <img
-          src="https://dxaurk9yhilm4.cloudfront.net/images/889/DJI_0161-copy_2cbd80a0345be3b5a0b7649a1a2d057f.jpg"
+          src="@/assets/images/img5.jpg"
         />
       </div>
       <main class="discover-your-world">

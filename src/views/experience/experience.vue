@@ -7,7 +7,7 @@
   <div class="container-2">
     <div class="main-image">
       <img
-        src="https://dxaurk9yhilm4.cloudfront.net/images/533/Golf3_4d32d1f061062da257f8ac1083a047ac.jpg"
+        src="@/assets/home/golf.jpg"
         alt=""
       />
     </div>
@@ -29,7 +29,7 @@
   <div class="container-3">
     <div class="main-image">
       <img
-        src="https://dxaurk9yhilm4.cloudfront.net/images/144/OD_image_4d32d1f061062da257f8ac1083a047ac.jpg"
+        src="@/assets/home/scroll6.jpeg"
         alt=""
       />
     </div>
@@ -51,7 +51,7 @@
   <div class="container-4">
     <div class="main-image">
       <img
-        src="https://dxaurk9yhilm4.cloudfront.net/images/145/Wellness_image_4d32d1f061062da257f8ac1083a047ac.jpg"
+        src="@/assets/home/swim.jpg"
         alt=""
       />
     </div>

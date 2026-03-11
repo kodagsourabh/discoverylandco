@@ -3,7 +3,7 @@
   <div class="home">
     <!-- main section -->
     <section class="main">
-      <navbar />
+
       <div class="main-bg">
         <img src="@/assets/About/header.jpg" />
       </div>

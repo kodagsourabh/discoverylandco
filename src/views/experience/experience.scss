@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Benne&family=Work+Sans:wght@100;200&display=swap");
+@import "@/assets/scss/global.scss";
+
 @mixin RoyalFont {
-  font-family: "Benne", serif;
+  font-family: var(--font-serif);
 }
 @mixin HeaderL2Font {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-sans);
 }
 @mixin horizontal-align {
   display: flex;
@@ -19,23 +20,24 @@
 @mixin explore-button {
   .button {
     position: relative;
-    margin: 1%;
-    padding: 4% 9%;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
     text-align: center;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
     background: transparent;
-    color: $subtext-color;
-    border: 1.25px solid $subtext-color;
+    color: var(--color-dark);
+    border: 1px solid rgba(0,0,0,0.2);
     cursor: pointer;
-    transition: ease-out 0.5s;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
   }
   .button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
-    font-family: Roboto;
+    font-family: var(--font-sans);
     font-weight: 500;
   }
 
@@ -43,9 +45,17 @@
     content: "\00BB";
     position: absolute;
     opacity: 0;
-    top: 0;
+    top: -2px;
     right: -20px;
     transition: 0.5s;
+    font-size: 1.2rem;
+  }
+
+  .button:hover {
+    background-color: var(--color-dark);
+    color: #fff;
+    border-color: var(--color-dark);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   }
 
   .button:hover span {
@@ -57,8 +67,9 @@
     right: 0;
   }
 }
-$subtext-color: #777;
-$maintext-color: #000;
+
+$subtext-color: var(--color-text-muted);
+$maintext-color: var(--color-dark);
 $page-width: 100%;
 
 .experience-bg {
@@ -137,105 +148,105 @@ $page-width: 100%;
   }
 }
 @mixin Amenities-Layout {
-  background-color: #fff;
+  background-color: var(--color-light);
   position: relative;
-  // margin-top: 8.5rem;
-  min-height: 100vh;
-  padding-left: 2rem;
+  min-height: 90vh;
+  padding: 8rem 0;
+  display: flex;
+  align-items: center;
+
   .main-image {
     position: absolute;
     z-index: 2;
-    top: 0;
-    width: 90vw;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 70vh;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    
     img {
-      width: 80%;
-      height: 70%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      width: 90vw;
+      position: relative;
+      transform: none;
+      top: 0;
     }
   }
 
   .white-box {
-    background-color: #fff;
-    width: 25vw;
-    padding: 7rem 5rem 3.5rem 3.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 35vw;
+    padding: 6rem 5rem;
     position: absolute;
-    right: 10%;
-    top: 2.75rem;
     z-index: 100;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    
     p {
       color: $subtext-color;
-      line-height: 2;
-      font-size: 0.9rem;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      font-weight: 300;
     }
     h1 {
       color: $maintext-color;
       @include RoyalFont;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
     }
     @include explore-button;
+
+    @media screen and (max-width: 1000px) {
+      width: 85vw;
+      position: relative;
+      margin: -10% auto 0;
+      padding: 4rem 3rem;
+    }
   }
 }
+
 .Amenities-Explore {
-  background-color: #f3f3f3;
+  background-color: var(--color-light);
   padding: 8.5rem 0rem;
 }
+
 .container-2 {
-  background-color: #fff;
   @include Amenities-Layout;
-  .background-gradient {
-    background-image: url("https://dxaurk9yhilm4.cloudfront.net/images/533/Golf3_a6d5da221c5021abd741e6da07ad9aaa.jpg");
-  }
+  .main-image { left: 5%; }
+  .white-box { right: 10%; }
 }
+
 .container-4 {
-  padding-bottom: 50%;
   @include Amenities-Layout;
-  .background-gradient {
-    background-image: url("https://dxaurk9yhilm4.cloudfront.net/images/145/Wellness_image_a6d5da221c5021abd741e6da07ad9aaa.jpg");
-  }
+  .main-image { left: 5%; }
+  .white-box { right: 10%; }
   margin-bottom: 7.5rem;
 }
-.container-3 {
-  background-color: #fff;
-  direction: rtl;
-  position: relative;
-  min-height: 100vh;
-  padding-right: 2rem;
-  .main-image {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    width: 90vw;
-    img {
-      width: 80%;
-      height: 70%;
-    }
-  }
 
-  .white-box {
-    background-color: #fff;
-    width: 25vw;
-    padding: 7rem 5rem 3.5rem 3.5rem;
-    position: absolute;
-    left: 10%;
-    top: 2.75rem;
+.container-3 {
+  @include Amenities-Layout;
+  .main-image { right: 5%; }
+  .white-box { 
+    left: 10%; 
     text-align: left;
-    z-index: 100;
-    p {
-      color: $subtext-color;
-      line-height: 2;
-      font-size: 0.9rem;
-    }
-    h1 {
-      color: $maintext-color;
-      @include RoyalFont;
-    }
-    @include explore-button;
-  }
-  .background-gradient {
-    background-image: url("https://dxaurk9yhilm4.cloudfront.net/images/144/OD_image_a6d5da221c5021abd741e6da07ad9aaa.jpg");
   }
 }
+
 .container-2,
 .container-3 {
-  margin-bottom: 15rem;
+  margin-bottom: 8rem;
 }
 $para-color: #777;
 $title-color: #000;

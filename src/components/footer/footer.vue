@@ -19,10 +19,10 @@
           </address>
         </div>
         <div class="about column">
-          <router-link to="/about-dlc"
+          <router-link to="/about"
             ><p class="hover-underline-animation">About DLC</p></router-link
           >
-          <router-link to="/our-worlds"
+          <router-link to="/ourworlds"
             ><p class="hover-underline-animation">Our Worlds</p></router-link
           >
           <router-link to="/experiences"

@@ -13,143 +13,123 @@
       </p>
     </div>
     <div class="right">
-      <img
-        src="https://dxaurk9yhilm4.cloudfront.net/images/157/What_we_do_design_1_2e8d9b92b1b20afb1d0f8d6550777aa2.jpg"
-        alt="Ocean View"
-      />
+      <img src="@/assets/images/img2.jpg" alt="Ocean View" />
     </div>
     <div class="bottom-left">
-      <img
-        src="https://dxaurk9yhilm4.cloudfront.net/images/158/What_we_do_design_2_2ab4534b0a2984e07d7caeca8808129f.jpg"
-        alt="Leisure"
-      />
+      <img src="@/assets/images/img6.jpg" alt="Leisure" />
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 #app {
-  background-color: #ffffff;
-}
-
-video.main-bg {
-  min-width: 100%;
-  min-height: 100vh;
-}
-
-.discover-your-world {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  color: #fff;
-  padding: 0 20rem;
-  @media screen and (max-width: 500px) {
-    padding: 0 1rem;
-  }
-  @media screen and (min-width: 500.1px) and (max-width: 1000px) {
-    padding: 0 2rem;
-  }
-
-  .discover,
-  .your-world {
-    font-size: 6rem;
-    display: block;
-    line-height: 5rem;
-    font-weight: 100;
-    @media screen and (max-width: 500px) {
-      font-size: 3rem;
-      line-height: 2.5rem;
-    }
-  }
-
-  .discover {
-    font-family: "Average", serif;
-  }
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background-color: var(--color-light);
 }
 
 #welcome {
   display: flex;
   align-content: center;
-  background-color: #ffffff;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 4rem 8rem;
+  background-color: var(--color-light);
+  padding: 8rem 10%;
+  
   @media screen and (max-width: 1000px) {
-    padding: 4rem 0;
+    padding: 5rem 5%;
   }
 
   display: grid;
-  column-gap: 8rem;
+  column-gap: 6rem;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 2fr;
+  align-items: center;
+
   @media screen and (max-width: 1000px) {
     column-gap: 4rem;
-    row-gap: 2rem;
+    row-gap: 4rem;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
   }
 
   .top-left {
     display: flex;
     flex-direction: column;
-    row-gap: 3rem;
-    padding-top: 30%;
+    row-gap: 2.5rem;
+    padding-right: 2rem;
+
     @media screen and (max-width: 1000px) {
       row-gap: 2rem;
-      padding: 2rem;
+      padding-right: 0;
+      padding-top: 0;
     }
 
     .welcome-to-our-world {
       span {
         display: block;
-        font-size: 3rem;
-        line-height: 2.5rem;
-        font-weight: lighter;
-        @media screen and (max-width: 500px) {
-          font-size: 2.5rem;
-          line-height: 2rem;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        color: var(--color-dark);
+        font-family: var(--font-serif);
+        font-weight: 400;
+        
+        @media screen and (max-width: 768px) {
+          font-size: 2.8rem;
         }
-      }
-      .welcome-to {
-        font-family: "Average", serif;
       }
     }
 
     .welcome-text {
-      color: #777;
-      line-height: 2rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 90%;
+      
       @media screen and (max-width: 500px) {
-        font-size: 0.9rem;
-        line-height: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        max-width: 100%;
       }
     }
   }
 
   .right {
-    top: -10%;
-    grid-row: span 2;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+
     @media screen and (max-width: 1000px) {
-      padding: 0 2rem;
+      padding: 0;
     }
 
     img {
       width: 100%;
       display: block;
       margin: auto;
+      transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 
   .bottom-left {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    
     img {
-      width: 100%;
-      margin-top: 8rem;
-      @media screen and (max-width: 500px) {
+      width: 70%;
+      border-radius: 4px;
+      box-shadow: var(--shadow-premium);
+      transition: transform 1.2s ease;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
         margin-top: 2rem;
+      }
+
+      &:hover {
+        transform: scale(1.03);
       }
     }
   }

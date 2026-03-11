@@ -1,227 +1,228 @@
-$para-color: #777;
-$title-color: #000;
+@import "@/assets/scss/global.scss";
+
+$para-color: var(--color-text-muted);
+$title-color: var(--color-dark);
 $page-width: 100%;
 
 @mixin paratext {
   color: $para-color;
+  font-family: var(--font-sans);
 }
 @mixin maintext {
-  @include RoyalFont;
+  font-family: var(--font-serif);
   color: $title-color;
-}
-@mixin RoyalFont {
-  font-family: "Benne", serif;
-}
-@mixin HeaderL2Font {
-  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
 }
 
 @mixin button-animation-whitebg {
-  $button-color: #000;
   .button {
     position: relative;
-    margin: 1%;
-    padding: 1% 2%;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
     text-align: center;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
     background: transparent;
-    color: $button-color;
-    border: 1.25px solid $button-color;
+    color: var(--color-dark);
+    border: 1px solid rgba(0,0,0,0.2);
     cursor: pointer;
-    transition: ease-out 0.5s;
-  }
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
 
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-    font-family: "Work Sans", sans-serif;
-    font-weight: 500;
-  }
+    span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+      font-family: var(--font-sans);
+      font-weight: 500;
 
-  .button span:after {
-    content: "\00BB";
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
+      &:after {
+        content: "\00BB";
+        position: absolute;
+        opacity: 0;
+        top: -2px;
+        right: -20px;
+        transition: 0.5s;
+        font-size: 1.2rem;
+      }
+    }
 
-  .button:hover span {
-    padding-right: 25px;
-  }
+    &:hover {
+      background-color: var(--color-dark);
+      color: #fff;
+      border-color: var(--color-dark);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
+      span {
+        padding-right: 25px;
+
+        &:after {
+          opacity: 1;
+          right: 0;
+        }
+      }
+    }
   }
 }
 
 @mixin button-icons {
   display: flex;
   button {
-    width: 2rem;
-    border: none;
-    background-color: inherit;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    background-color: #fff;
     outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-smooth);
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      transition: var(--transition-smooth);
+    }
+
+    &:hover {
+      background-color: var(--color-dark);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-color: var(--color-dark);
+      svg {
+        fill: #fff;
+      }
+    }
+
     @media screen and (max-width: 429px) {
-      width: 1.75rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      svg { width: 1rem; height: 1rem; }
     }
   }
-}
-
-@mixin video-header {
-  position: absolute;
-
-  z-index: 100;
-  width: $page-width;
-  @media screen and (max-width: 834px) {
-    display: none;
-  }
-  .video-title {
-    position: absolute;
-    color: #fff;
-    top: 25rem;
-    left: 20%;
-    h1 {
-      color: #ffffff;
-      font-size: 4.75rem;
-      line-height: 0.75;
-    }
-    #title1 {
-      @include RoyalFont;
-    }
-    #title2 {
-      @include HeaderL2Font;
-    }
-  }
-}
-@mixin RoyalFont {
-  font-family: "Benne", serif;
-}
-@mixin HeaderL2Font {
-  font-family: "Work Sans", sans-serif;
-}
-
-@mixin horizontal-align {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-@mixin vertical-align {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-$para-color: #777;
-$page-width: 100%;
-$title-color: #000;
-
-@mixin paratext {
-  color: $para-color;
-}
-@mixin maintext {
-  @include RoyalFont;
-  color: $title-color;
 }
 
 .wrapper-container {
-  background-color: #f3f3f3;
+  background-color: var(--color-light);
   .press-content-1 {
     width: 80vw;
-    padding: 8.5rem 0;
+    padding: 6rem 0;
     margin: auto;
+    
     @media screen and (max-width: 834px) {
-      width: 100vw;
+      width: 90vw;
       padding: 4rem 0;
     }
-    @media screen and (max-width: 834px) {
-      width: 100vw;
-      padding: 4rem 0 2rem 0;
-    }
+
     #container-header {
       @include maintext;
-      padding-left: 2rem;
+      font-size: 3.5rem;
+      margin-bottom: 2rem;
+      
+      @media screen and (max-width: 834px) {
+        font-size: 2.5rem;
+      }
     }
+
     .press-slideshow {
       position: relative;
-      padding: 4rem 0;
+      padding: 2rem 0 6rem;
+      
       @media screen and (max-width: 834px) {
         display: flex;
         flex-direction: column;
-        // align-items: center;
-        margin: auto;
         padding: 0;
       }
+
       img {
-        width: 69vw;
-        height: 120vh;
+        width: 65vw;
+        height: 70vh;
+        object-fit: cover;
+        box-shadow: var(--shadow-premium);
+        
         @media screen and (max-width: 834px) {
-          width: 100vw;
-          height: auto;
+          width: 100%;
+          height: 50vh;
         }
       }
+
       .whitebox {
         position: absolute;
-        top: 18%;
-        right: 0;
-        width: 25vw;
-
+        top: 25%;
+        right: 5%;
+        width: 30vw;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         padding: 4rem;
-        line-height: 1.5;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        
+        @media screen and (max-width: 1000px) {
+          right: 0;
+          width: 40vw;
+          padding: 3rem;
+        }
+
         @media screen and (max-width: 834px) {
           position: relative;
-          width: 90vw;
-          height: auto;
-          margin: auto;
-          top: -5rem;
+          width: 85vw;
+          margin: -10% auto 0;
+          top: 0;
+          padding: 3rem 2rem;
         }
-        @media screen and (max-width: 429px) {
-          position: relative;
-          width: 95vw;
-          padding: 3rem 1.5rem;
-          line-height: 1.35;
-          height: auto;
-          margin: auto;
-          top: -3rem;
+
+        p:first-of-type {
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-size: 0.85rem;
+          color: var(--color-accent);
+          margin-bottom: 1rem;
         }
+
         h1 {
           @include maintext;
+          font-size: 2.2rem;
+          line-height: 1.2;
+          margin-bottom: 1.5rem;
+          
           @media screen and (max-width: 429px) {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
           }
         }
-        p {
+        p:last-of-type {
           @include paratext;
-          font-size: 0.9rem;
+          font-size: 1.05rem;
+          line-height: 1.8;
+          font-weight: 300;
+          
           @media screen and (max-width: 429px) {
-            font-size: 0.75rem;
+            font-size: 0.95rem;
           }
         }
         @include button-animation-whitebg;
       }
     }
   }
+  
   .page-details {
+    display: flex;
     align-items: center;
     justify-content: center;
     @include button-icons;
-    gap: 1.5rem;
+    gap: 2rem;
+    padding-top: 2rem;
+    
     @media screen and (max-width: 834px) {
-      position: relative;
-      top: -3rem;
+      padding-top: 4rem;
     }
-    @media screen and (max-width: 429px) {
-      position: relative;
-      top: -2.2rem;
-    }
+    
     p {
-      margin: auto 0;
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
     }
   }
 }

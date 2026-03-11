@@ -6,10 +6,10 @@
     </div>
     <div class="arigth_nav">
       <router-link to="/about">About DLC</router-link>
-      <router-link to="/ourWorlds">Our Worlds</router-link>
-      <router-link to="/Experiences">Experiences</router-link>
-      <router-link to="/Gallery">Gallery</router-link>
-      <router-link to="/Press">Press</router-link>
+      <router-link to="/ourworlds">Our Worlds</router-link>
+      <router-link to="/experiences">Experiences</router-link>
+      <router-link to="/gallery">Gallery</router-link>
+      <router-link to="/press">Press</router-link>
     </div>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <section class="main">
-      <navbar />
+
       <video class="main-bg" autoplay muted loop>
         <source
-          src="https://dxaurk9yhilm4.cloudfront.net/experiences_hero.mp4?mtime=20190609072805"
+          src="@/assets/video/hvideo.mp4"
           type="video/mp4"
         />
       </video>

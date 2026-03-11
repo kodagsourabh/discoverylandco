@@ -3,7 +3,7 @@
   <div class="home">
     <!-- main section -->
     <section class="main">
-      <navbar />
+
       <video class="main-bg" autoplay muted loop>
         <source src="@/assets/video/hvideo.mp4" type="video/mp4" />
       </video>
@@ -41,130 +41,193 @@
 
 <style scoped lang="scss">
 #app {
-  background-color: #ffffff;
+  background-color: var(--color-light);
 }
 .home {
   .main {
     overflow: hidden;
     width: 100%;
     position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Subtle gradient overlay to ensure text is legible on the bright video */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.5) 0%,
+        rgba(0,0,0,0.1) 40%,
+        rgba(0,0,0,0.4) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
 
     video.main-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       min-width: 100%;
-      min-height: 100vh;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: 0;
     }
 
     .discover-your-world {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
+      position: relative;
+      z-index: 2;
       color: #fff;
-      padding: 0 20rem;
-      @media screen and (max-width: 500px) {
-        padding: 0 1rem;
-      }
-      @media screen and (min-width: 500.1px) and (max-width: 1000px) {
-        padding: 0 2rem;
-      }
+      text-align: center;
+      padding: 0 2rem;
+      animation: fadeInUp 1.2s ease forwards;
 
       .discover,
       .your-world {
+        font-family: var(--font-serif);
         font-size: 6rem;
         display: block;
-        line-height: 5rem;
-        font-weight: 100;
-        @media screen and (max-width: 500px) {
-          font-size: 3rem;
-          line-height: 2.5rem;
+        line-height: 1.1;
+        font-weight: 400;
+        letter-spacing: 2px;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+
+        @media screen and (max-width: 768px) {
+          font-size: 3.5rem;
         }
       }
 
-      .discover {
-        font-family: "Average", serif;
+      .your-world {
+        font-style: italic;
+        font-family: var(--font-sans);
+        font-weight: 300;
       }
+    }
+  }
 
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+  /* Keyframe animations for entrance */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
   #welcome {
-    background-color: #ffffff;
-    background: url("../../assets/home/home3.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 4rem 8rem;
+    background-color: var(--color-light);
+    padding: 8rem 10%;
+    
     @media screen and (max-width: 1000px) {
-      padding: 4rem 0;
+      padding: 4rem 5%;
     }
 
     display: grid;
-    column-gap: 8rem;
+    column-gap: 6rem;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 2fr;
+    align-items: center;
+
     @media screen and (max-width: 1000px) {
       column-gap: 4rem;
-      row-gap: 2rem;
+      row-gap: 4rem;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
     }
 
     .top-left {
       display: flex;
       flex-direction: column;
-      row-gap: 3rem;
+      row-gap: 2.5rem;
+      padding-right: 2rem;
+
       @media screen and (max-width: 1000px) {
         row-gap: 2rem;
-        padding: 2rem;
+        padding-right: 0;
       }
 
       .welcome-to-our-world {
         span {
           display: block;
-          font-size: 3rem;
-          line-height: 2.5rem;
-          font-weight: lighter;
-          @media screen and (max-width: 500px) {
+          font-size: 3.5rem;
+          line-height: 1.1;
+          color: var(--color-dark);
+          
+          @media screen and (max-width: 768px) {
             font-size: 2.5rem;
-            line-height: 2rem;
           }
         }
         .welcome-to {
-          font-family: "Average", serif;
+          font-family: var(--font-sans);
+          font-weight: 300;
+          letter-spacing: 1px;
+          color: var(--color-text-muted);
+        }
+        .our-world {
+          font-family: var(--font-serif);
+          font-style: italic;
         }
       }
 
       .welcome-text {
-        color: #777;
-        line-height: 2rem;
+        color: var(--color-text-muted);
+        line-height: 1.8;
+        font-size: 1.1rem;
+        font-weight: 300;
+        max-width: 90%;
+        
         @media screen and (max-width: 500px) {
-          font-size: 0.9rem;
-          line-height: 1.5rem;
+          font-size: 1rem;
+          line-height: 1.6;
+          max-width: 100%;
         }
       }
     }
 
     .right {
-      grid-row: span 2;
-      @media screen and (max-width: 1000px) {
-        padding: 0 2rem;
-      }
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      box-shadow: var(--shadow-premium);
 
       img {
         width: 100%;
         display: block;
         margin: auto;
+        transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        &:hover {
+          transform: scale(1.05);
+        }
       }
     }
 
     .bottom-left {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+      margin-top: 4rem;
+      
       img {
-        width: 100%;
-        margin-top: 8rem;
-        @media screen and (max-width: 500px) {
-          margin-top: 2rem;
+        width: 80%;
+        border-radius: 4px;
+        box-shadow: var(--shadow-premium);
+        transition: transform 1.2s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
         }
       }
     }

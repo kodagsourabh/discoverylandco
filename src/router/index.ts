@@ -7,12 +7,12 @@ import experience from '../views/experience/experience.vue'
 import press from '../views/press/press.vue'
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/Gallery',
+    path: '/gallery',
     name: 'Gallery',
     component: gallery
   },
   {
-    path: '/ourWorlds',
+    path: '/ourworlds',
     name: 'ourWorlds',
     component: worldgall
   },
@@ -27,8 +27,8 @@ const routes: Array<RouteRecordRaw> = [
     component: about
   },
   {
-    path: '/Experiences',
-    name: 'experinece',
+    path: '/experiences',
+    name: 'experience',
     component: experience
   },
   {
@@ -36,14 +36,6 @@ const routes: Array<RouteRecordRaw> = [
     name: 'press',
     component: press
   },
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/about/About.vue')
-  // }
 ]
 
 const router = createRouter({

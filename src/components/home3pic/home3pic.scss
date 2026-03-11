@@ -8,22 +8,35 @@ $icon-size: 1.6rem;
 @mixin HeaderL2Font {
   font-family: "Work Sans", sans-serif;
 }
+@import "@/assets/scss/global.scss";
+
 #HomeFooter {
-  background-color: white;
+  background-color: var(--color-light);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 100vh;
+  height: 80vh;
+  min-height: 600px;
+  
   @media screen and (max-width: 834px) {
-    height: 50vh;
+    height: 60vh;
   }
   @media screen and (max-width: 429px) {
     grid-template-columns: 1fr;
-    height: 95vh;
+    height: auto;
+    gap: 2px;
   }
+
   a {
     text-decoration: none;
     color: #fff;
+    display: block;
+    height: 100%;
+    
+    @media screen and (max-width: 429px) {
+      height: 40vh;
+    }
   }
+
   .home-footer-content {
     display: flex;
     flex-direction: column;
@@ -31,53 +44,97 @@ $icon-size: 1.6rem;
     justify-content: center;
     overflow: hidden;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height: 100%;
-    background-color: #000000;
-    background-blend-mode: normal;
+    position: relative;
+    cursor: pointer;
+
     .overlay {
-      height: 100%;
-      width: 100%;
-      background: rgba($color: #000000, $alpha: 0.35);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      transition: background 0.5s ease;
+      z-index: 1;
+    }
+
+    &:hover .overlay {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        opacity: 0.6;
+        z-index: 0;
+    }
+    
+    /* Background scaling on hover for premium feel */
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    &:hover {
+      background-size: 105%;
     }
   }
+
   .home-footer-image1 {
-    background-image: url("https://dxaurk9yhilm4.cloudfront.net/images/728/Expereinces_slider_190716_095517_e36797c82dbcb9dea0800f713424f022.jpg");
+    background-image: url("~@/assets/images/img3.jpeg");
   }
   .home-footer-image2 {
-    background-image: url("https://dxaurk9yhilm4.cloudfront.net/images/729/lifestyle_slider_190716_095537_fc98236fcd7afd38ca0fd181cf61bcb6.jpg");
+    background-image: url("~@/assets/images/img4.jpg");
   }
   .home-footer-image3 {
-    background-image: url("https://dxaurk9yhilm4.cloudfront.net/images/730/wellness_slider_190716_095551_90f8ce634cc6ad7a15d605007f03ee5c.jpg");
+    background-image: url("~@/assets/images/img5.jpg");
   }
+
   h4 {
-    font-size: 44px;
-    line-height: 1.4;
-    @include HeaderL2Font;
-    font-weight: 300;
+    position: relative;
+    z-index: 2;
+    font-size: 2.5rem;
+    font-family: var(--font-serif);
+    font-weight: 400;
     margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    
     @media screen and (max-width: 834px) {
-      font-size: 32px;
+      font-size: 2rem;
     }
   }
+
   button {
+    position: relative;
+    z-index: 2;
     margin-top: 1.5rem;
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
-    border: 1px solid #ffffff;
-    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.4);
     cursor: pointer;
     background-color: transparent;
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-smooth);
+
     @media screen and (max-width: 834px) {
       height: 3rem;
       width: 3rem;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: var(--color-dark);
+      transform: scale(1.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
   }
 }

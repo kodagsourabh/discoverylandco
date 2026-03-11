@@ -6,9 +6,9 @@
     </div>
     <div class="rigth_nav">
       <router-link class="rout" to="/about">About DLC</router-link>
-      <router-link class="rout" to="/ourWorlds">Our Worlds</router-link>
-      <router-link class="rout" to="/Experiences">Experiences</router-link>
-      <router-link class="rout" to="/Gallery">Gallery</router-link>
+      <router-link class="rout" to="/ourworlds">Our Worlds</router-link>
+      <router-link class="rout" to="/experiences">Experiences</router-link>
+      <router-link class="rout" to="/gallery">Gallery</router-link>
       <router-link class="rout" to="/press">Press</router-link>
     </div>
   </div>
